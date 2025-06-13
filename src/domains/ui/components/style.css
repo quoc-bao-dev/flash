@@ -1,0 +1,47 @@
+/* === Scrollbar Styles === */
+
+/* Default (light theme) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f5;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1; /* gray-300 */
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #94a3b8; /* gray-400 */
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 #f5f5f5;
+}
+
+/* Dark theme (using media query) */
+@media (prefers-color-scheme: dark) {
+  ::-webkit-scrollbar-track {
+    background: #1f2937; /* gray-800 */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #4b5563; /* gray-600 */
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #6b7280; /* gray-500 */
+  }
+
+  * {
+    scrollbar-color: #4b5563 #1f2937;
+  }
+}

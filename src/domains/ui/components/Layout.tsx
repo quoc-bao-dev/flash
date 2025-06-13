@@ -56,8 +56,8 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
           >
             {children}
           </motion.div>
-          <footer className="py-3 text-center text-gray-400 text-sm">
-            Create with love by Quoc Bao dev
+          <footer className="mt-auto py-4 text-center text-gray-400 text-sm">
+            Created with love by Quoc Bao dev
           </footer>
         </main>
       </div>

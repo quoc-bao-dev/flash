@@ -1,11 +1,11 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useThemeStore } from '../store/themeStore';
-import { Header } from './Header';
-import { Navigation } from './Navigation';
-import { useAppStore } from '../store/appStore';
+import React from "react";
+import { motion } from "framer-motion";
+import { useThemeStore } from "../store/themeStore";
+import { Header } from "./Header";
+import { Navigation } from "./Navigation";
+import { useAppStore } from "../store/appStore";
 
-import './style.css';
+import "./style.css";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -17,24 +17,24 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const setPage = useAppStore((s) => s.setPage);
 
   const fontSizeClass = {
-    small: 'text-sm',
-    medium: 'text-base',
-    large: 'text-lg',
+    small: "text-sm",
+    medium: "text-base",
+    large: "text-lg",
   }[settings.fontSize];
 
   const containerClass = `
     min-h-screen transition-colors duration-300
     ${
-      settings.mode === 'dark'
-        ? 'bg-gray-900 text-white'
-        : 'bg-gray-50 text-gray-900'
+      settings.mode === "dark"
+        ? "bg-gray-900 text-white"
+        : "bg-gray-50 text-gray-900"
     }
     ${
       settings.highContrast
-        ? settings.mode === 'dark'
-          ? 'bg-black text-white'
-          : 'bg-white text-black'
-        : ''
+        ? settings.mode === "dark"
+          ? "bg-black text-white"
+          : "bg-white text-black"
+        : ""
     }
     ${fontSizeClass}
   `;
@@ -50,12 +50,15 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{
               duration: settings.reduceMotion ? 0.1 : 0.3,
-              ease: 'easeOut',
+              ease: "easeOut",
             }}
             className="max-w-7xl mx-auto"
           >
             {children}
           </motion.div>
+          <footer className="py-3 text-center text-gray-400 text-sm">
+            Create with love by Quoc Bao dev
+          </footer>
         </main>
       </div>
     </div>

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   BookOpen,
   Brain,
@@ -11,9 +11,9 @@ import {
   Home,
   List,
   Settings,
-} from 'lucide-react';
-import { useThemeStore } from '../store/themeStore';
-import { AppPage } from '../types/appTypes';
+} from "lucide-react";
+import { useThemeStore } from "../store/themeStore";
+import { AppPage } from "../types/appTypes";
 
 interface NavigationProps {
   currentView?: string;
@@ -21,42 +21,42 @@ interface NavigationProps {
 }
 
 const navigationItems = [
-  { id: 'dashboard', label: 'Dashboard', icon: Home },
-  { id: 'topics', label: 'Topics', icon: Folder },
-  { id: 'flashcards', label: 'Study Cards', icon: BookOpen },
-  { id: 'library', label: 'Library', icon: List },
-  { id: 'learning', label: 'Quiz Mode', icon: Brain },
-  { id: 'stats', label: 'Statistics', icon: BarChart3 },
-  { id: 'achievements', label: 'Achievements', icon: Trophy },
-  { id: 'settings', label: 'Settings', icon: Settings },
+  { id: "dashboard", label: "Dashboard", icon: Home },
+  { id: "topics", label: "Topics", icon: Folder },
+  { id: "flashcards", label: "Study Cards", icon: BookOpen },
+  { id: "library", label: "Library", icon: List },
+  { id: "learning", label: "Quiz Mode", icon: Brain },
+  { id: "stats", label: "Statistics", icon: BarChart3 },
+  { id: "achievements", label: "Achievements", icon: Trophy },
+  { id: "settings", label: "Settings", icon: Settings },
 ];
 
 export const Navigation: React.FC<NavigationProps> = ({
-  currentView = 'dashboard',
+  currentView = "dashboard",
   onViewChange = () => {},
 }) => {
   const { settings } = useThemeStore();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItemClass = (isActive: boolean) => `
-    flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200
+    flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 w-full
     ${
       isActive
-        ? settings.mode === 'dark'
-          ? 'bg-primary-600 text-white shadow-lg'
-          : 'bg-primary-500 text-white shadow-lg'
-        : settings.mode === 'dark'
-        ? 'text-gray-300 hover:bg-gray-700 hover:text-white'
-        : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
+        ? settings.mode === "dark"
+          ? "bg-primary-600 text-white shadow-lg"
+          : "bg-primary-500 text-white shadow-lg"
+        : settings.mode === "dark"
+        ? "text-gray-300 hover:bg-gray-700 hover:text-white"
+        : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
     }
   `;
 
   const sidebarClass = `
     w-64 h-full border-r transition-colors duration-300 p-4
     ${
-      settings.mode === 'dark'
-        ? 'bg-gray-800 border-gray-700'
-        : 'bg-white border-gray-200'
+      settings.mode === "dark"
+        ? "bg-gray-800 border-gray-700"
+        : "bg-white border-gray-200"
     }
   `;
 
@@ -95,9 +95,9 @@ export const Navigation: React.FC<NavigationProps> = ({
           className={`
             p-2 rounded-lg shadow-lg transition-colors duration-200
             ${
-              settings.mode === 'dark'
-                ? 'bg-gray-800 text-white hover:bg-gray-700'
-                : 'bg-white text-gray-900 hover:bg-gray-50'
+              settings.mode === "dark"
+                ? "bg-gray-800 text-white hover:bg-gray-700"
+                : "bg-white text-gray-900 hover:bg-gray-50"
             }
           `}
           whileHover={{ scale: 1.05 }}
@@ -134,7 +134,7 @@ export const Navigation: React.FC<NavigationProps> = ({
               initial={{ x: -300 }}
               animate={{ x: 0 }}
               exit={{ x: -300 }}
-              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+              transition={{ type: "spring", damping: 30, stiffness: 300 }}
               className={`lg:hidden fixed left-0 top-0 z-50 ${sidebarClass} pt-16`}
             >
               <NavContent />
